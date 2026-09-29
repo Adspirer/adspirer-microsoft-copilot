@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.30/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.30",
+  "version": "0.1.0",
+  "id": "${{TEAMS_APP_ID}}",
+  "developer": {
+    "name": "Adspirer",
+    "websiteUrl": "https://www.adspirer.com",
+    "privacyUrl": "https://www.adspirer.com/privacy",
+    "termsOfUseUrl": "https://www.adspirer.com/terms"
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "name": {
+    "short": "Adspirer${{APP_NAME_SUFFIX}}",
+    "full": "Adspirer Advertising Agent"
+  },
+  "description": {
+    "short": "Analyze and manage your advertising with Adspirer.",
+    "full": "Connect your Adspirer account to review advertising performance, investigate wasted spend, research keywords, prepare ad copy, and create paused campaigns across supported connected ad platforms. Campaign changes require your approval. Requires an Adspirer account and connected advertising accounts."
+  },
+  "accentColor": "#161B33",
+  "copilotAgents": {
+    "declarativeAgents": [
+      {
+        "id": "adspirer",
+        "file": "declarativeAgent.json"
+      }
+    ]
+  },
+  "validDomains": [
+    "mcp.adspirer.com",
+    "adspirer.ai",
+    "www.adspirer.com"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.4/schema.json",
+  "schema_version": "v2.4",
+  "name_for_human": "Adspirer",
+  "description_for_human": "Review advertising performance and make approved campaign changes with Adspirer.",
+  "contact_email": "support@adspirer.com",
+  "namespace": "adspirer",
+  "functions": [],
+  "runtimes": [
+    {
+      "type": "RemoteMCPServer",
+      "spec": {
+        "url": "https://mcp.adspirer.com/mcp"
+      },
+      "run_for_functions": [
+        "*"
+      ],
+      "auth": {
+        "type": "OAuthPluginVault",
+        "reference_id": "${{ADSPIRER_AUTH_CONFIG_ID}}"
+      }
+    }
+  ],
+  "description_for_model": "Use Adspirer for advertising account discovery, performance analysis, campaign research, creative, and approved campaign management. Discover router tools and schemas before execution. Router calls can change live advertising data: obtain approval for the specific change and never treat all router calls as read-only.",
+  "legal_info_url": "https://www.adspirer.com/terms",
+  "privacy_policy_url": "https://www.adspirer.com/privacy"
+}
