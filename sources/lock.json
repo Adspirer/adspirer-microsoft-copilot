@@ -1,0 +1,44 @@
+{
+  "sources": [
+    {
+      "repository": "https://github.com/amekala/ads-mcp",
+      "revision": "420359a8974cbd9bc1902805f7114c0515c05ed1",
+      "path": "shared/skills/platform/adspirer-agent/SKILL.md",
+      "localPath": "sources/ads-mcp/shared/skills/platform/adspirer-agent/SKILL.md",
+      "sha256": "4098d464534ea6c71e03066348614b292f7c36e3b6852963adfe24c9fd55e864"
+    },
+    {
+      "repository": "https://github.com/amekala/ads-mcp",
+      "revision": "420359a8974cbd9bc1902805f7114c0515c05ed1",
+      "path": "shared/skills/platform/adspirer-mcp/SKILL.md",
+      "localPath": "sources/ads-mcp/shared/skills/platform/adspirer-mcp/SKILL.md",
+      "sha256": "456fa3a4772d0619bfa6698f2c66a74372ce1c03c3e9393b5186764011b0763a"
+    },
+    {
+      "repository": "https://github.com/amekala/ads-mcp",
+      "revision": "420359a8974cbd9bc1902805f7114c0515c05ed1",
+      "path": "shared/skills/platform/adspirer-performance-review/SKILL.md",
+      "localPath": "sources/ads-mcp/shared/skills/platform/adspirer-performance-review/SKILL.md",
+      "sha256": "e1b75070d3fcf43441d1e2b7e36b86599dc7df8b0cc1a063aa1a5b32ddcc4c02"
+    },
+    {
+      "repository": "https://github.com/Adspirer/adspirer-cursor-plugin",
+      "revision": "58d5d248e616d8ac4493aea15ca9e0aa358c4709",
+      "path": "assets/icon.png",
+      "localPath": "assets/adspirer-icon.png",
+      "sha256": "7c315ae20c9be59e264842765184b660887d646e2626592290f1c4e957747e2e"
+    }
+  ],
+  "inspiration": [
+    {
+      "repository": "https://github.com/Adspirer/adspirer-hermes-plugin",
+      "revision": "4688c38295a7b86f8119d7a0ecc09cd0b83a2730",
+      "notes": "Preserve explicit money approval, paused creation, readback, per-user OAuth; do not copy Hermes cron or local filesystem assumptions."
+    },
+    {
+      "repository": "https://github.com/Adspirer/adspirer-cursor-plugin",
+      "revision": "58d5d248e616d8ac4493aea15ca9e0aa358c4709",
+      "notes": "Brand-aware workflows and source/distribution separation."
+    }
+  ]
+}

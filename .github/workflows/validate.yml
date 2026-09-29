@@ -1,0 +1,26 @@
+name: Validate Copilot package
+on:
+  push:
+    branches: [main, 'feat/**']
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      # Offline builds do not need native credential-store installation.
+      - run: npm ci --ignore-scripts
+      - run: npm run check
+      - uses: actions/upload-artifact@v4
+        with:
+          name: adspirer-copilot-preview-not-installable
+          path: |
+            dist/preview/adspirer-copilot-preview.zip
+            dist/preview/build-report.json
+          if-no-files-found: error

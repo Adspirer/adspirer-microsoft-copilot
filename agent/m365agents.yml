@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://aka.ms/m365-agents-toolkits/v1.13/yaml.schema.json
+version: v1.13
+environmentFolderPath: ./env
+
+# Run only when ready to register this pilot in an authorized Microsoft tenant.
+# No deployment or publishing is performed by the local npm build commands.
+provision:
+  - uses: teamsApp/create
+    with:
+      name: Adspirer${{APP_NAME_SUFFIX}}
+    writeToEnvironmentFile:
+      teamsAppId: TEAMS_APP_ID
+  - uses: dcr/register
+    with:
+      name: Adspirer
+      appId: ${{TEAMS_APP_ID}}
+      applicableToApps: SpecificApp
+      targetAudience: HomeTenant
+      wellKnownAuthorizationServer: https://mcp.adspirer.com/.well-known/oauth-authorization-server
+      targetUrlsShouldStartWith:
+        - https://mcp.adspirer.com/mcp
+    writeToEnvironmentFile:
+      configurationId: ADSPIRER_AUTH_CONFIG_ID

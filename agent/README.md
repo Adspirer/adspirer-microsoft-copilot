@@ -1,27 +1,17 @@
-# Microsoft 365 Copilot agent
+# Adspirer Advertising Agent
 
-Planned package: **Adspirer Advertising Agent**, a declarative agent using the existing Adspirer MCP endpoint as a plugin.
+A Microsoft 365 Copilot declarative agent with a remote MCP plugin. It uses Microsoft's Copilot orchestration and Adspirer's existing backend; this package needs no separate bot server or model API key.
 
-This folder currently contains planning documentation only. It has no app manifest, plugin manifest, tenant registration, or installable package.
+## Files
 
-## Implementation checklist
+- `appPackage/manifest.json`: app, branding, and agent reference.
+- `appPackage/declarativeAgent.json`: six conversation starters and plugin reference.
+- `appPackage/ai-plugin.json`: dynamic MCP discovery and OAuth vault reference.
+- `instructions.template.md`: Microsoft adaptation and shared-section insertion points.
+- `appPackage/instruction.txt`: generated instructions; do not edit directly.
+- `m365agents.yml`: explicit pilot registration lifecycle, scoped to this app and home tenant.
+- `env/.env.example`: configuration names only; copy to an ignored `.env.dev`.
 
-- Generate the declarative-agent project with the Microsoft 365 Agents Toolkit CLI.
-- Configure the MCP plugin for `https://mcp.adspirer.com/mcp` and verify static or dynamic OAuth registration with Adspirer.
-- Add agent instructions derived from a recorded revision of the shared `ads-mcp` source.
-- Select an initial tool set for account discovery, reporting, and campaign preparation.
-- Supply Microsoft-compliant icons and app metadata.
-- Validate the package, install it in a test tenant, and verify OAuth, account isolation, reads, and approved writes end to end.
+Run commands from the repository root. [Setup](../docs/setup.md) separates local builds, registration, and tenant verification. No publishing action is included in the lifecycle file.
 
-Suggested pilot prompts:
-
-- "Show my connected advertising accounts."
-- "Compare last week's Google and Meta campaign performance."
-- "Prepare a paused campaign and show its settings for approval."
-
-Pilot data and credentials must be provided privately. Tests that change advertising data require explicit authorization.
-
-## Microsoft references
-
-- [Build an MCP plugin for a declarative agent](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/build-mcp-plugins)
-- [Publish agents](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/publish)
+Dynamic discovery uses `functions: []` and `run_for_functions: ["*"]`. Available tools change with the backend and the user's permissions. This is not a read-only allowlist: platform routers can execute mutations. See [evaluation](../docs/evaluation.md) before enabling campaign changes in a tenant.

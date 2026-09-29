@@ -1,0 +1,39 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.8/schema.json",
+  "version": "v1.8",
+  "name": "Adspirer${{APP_NAME_SUFFIX}}",
+  "description": "A performance marketing agent for connected Google, Meta, Amazon, TikTok, LinkedIn, and ChatGPT advertising accounts. Review live results, research and plan campaigns, and make approved changes.",
+  "instructions": "$[file('instruction.txt')]",
+  "conversation_starters": [
+    {
+      "title": "Connect my accounts",
+      "text": "Check my connected advertising accounts and help me get started."
+    },
+    {
+      "title": "Review performance",
+      "text": "Review the last 30 complete days across my connected ad platforms."
+    },
+    {
+      "title": "Find wasted spend",
+      "text": "Find wasted ad spend and show recommended changes before taking action."
+    },
+    {
+      "title": "Plan a campaign",
+      "text": "Help me plan a new campaign and prepare it in paused status after I approve."
+    },
+    {
+      "title": "Write ad copy",
+      "text": "Help me write ad copy using the brand brief I provide."
+    },
+    {
+      "title": "Check tracking",
+      "text": "Audit conversion tracking for my connected advertising accounts."
+    }
+  ],
+  "actions": [
+    {
+      "id": "adspirerTools",
+      "file": "ai-plugin.json"
+    }
+  ]
+}
