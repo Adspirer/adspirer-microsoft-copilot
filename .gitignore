@@ -1,0 +1,26 @@
+# Local configuration and authentication
+.env
+.env.*
+!.env.example
+env/.env*
+!env/.env.example
+*.local
+*.user
+*.pem
+*.key
+secrets/
+credentials/
+
+# Dependencies and generated output
+node_modules/
+dist/
+build/
+appPackage/build/
+*.zip
+*.log
+coverage/
+
+# Local tooling
+.DS_Store
+.idea/
+.localConfigs
