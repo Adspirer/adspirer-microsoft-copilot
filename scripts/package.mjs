@@ -21,7 +21,8 @@ for (const name of ['color.png','outline.png']) contents[name]=readFileSync(reso
 for (const [name,data] of Object.entries(contents)) {
   writeFileSync(resolve(destination,name),data);
   zip.addFile(name,data);
-  zip.getEntry(name).header.time = new Date('2026-01-01T00:00:00Z');
+  // ZIP stores local DOS time; use local midnight to match across host timezones.
+  zip.getEntry(name).header.time = new Date(2026, 0, 1, 0, 0, 0);
 }
 const bytes = zip.toBuffer();
 const filename = `adspirer-copilot-${preview ? 'preview' : 'configured'}.zip`;

@@ -51,13 +51,13 @@ test('instructions reproduce pinned sources within the host limit', () => {
 });
 
 test('ZIP is deterministic and includes only manifests/icons, without environment secrets', () => {
-  const build = () => execFileSync(process.execPath,['scripts/package.mjs','--preview'],{
-    cwd:root, env:{...process.env,TEAMS_APP_ID:'PRIVATE_TENANT_SENTINEL',ADSPIRER_AUTH_CONFIG_ID:'PRIVATE_AUTH_SENTINEL',SECRET_CLIENT_SECRET:'SECRET_SENTINEL'},stdio:'pipe',
+  const build = tz => execFileSync(process.execPath,['scripts/package.mjs','--preview'],{
+    cwd:root, env:{...process.env,TZ:tz,TEAMS_APP_ID:'PRIVATE_TENANT_SENTINEL',ADSPIRER_AUTH_CONFIG_ID:'PRIVATE_AUTH_SENTINEL',SECRET_CLIENT_SECRET:'SECRET_SENTINEL'},stdio:'pipe',
   });
-  build();
+  build('UTC');
   const path=resolve(root,'dist/preview/adspirer-copilot-preview.zip');
   const first=readFileSync(path);
-  build();
+  build('America/Los_Angeles');
   assert.deepEqual(first,readFileSync(path));
   const zip=new AdmZip(first);
   assert.deepEqual(zip.getEntries().map(e=>e.entryName).sort(),['ai-plugin.json','color.png','declarativeAgent.json','manifest.json','outline.png']);
